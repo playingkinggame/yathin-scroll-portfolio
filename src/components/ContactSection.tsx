@@ -4,6 +4,8 @@ import { Send, Mail, Copy, Check, Github, Linkedin, Sparkles, MessageSquare, Ter
 export const ContactSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,10 +21,39 @@ export const ContactSection: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
+    if (!formData.name || !formData.email || !formData.message || sending) return;
+
+    setSending(true);
+    setError('');
+
+    try {
+      // FormSubmit forwards the message straight to the inbox below (no backend needed).
+      const res = await fetch(`https://formsubmit.co/ajax/${email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _replyto: formData.email,
+          _subject: `Portfolio message: ${formData.subject}`,
+          subject: formData.subject,
+          message: formData.message,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.success === 'false' || data.success === false) {
+        throw new Error(data.message || 'Request failed');
+      }
+      setSubmitted(true);
+    } catch {
+      setError('Transmission failed. Please try again, or email me directly using the address on the left.');
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -136,7 +167,7 @@ export const ContactSection: React.FC = () => {
                 TRANSMISSION DISPATCHED
               </h4>
               <p className="text-sm text-slate-200 max-w-md mx-auto">
-                Thank you! Your message has been prepared. Yathin will review your transmission and get back to you promptly.
+                Thank you! Your message has been sent to Yathin's inbox. He will review your transmission and get back to you promptly.
               </p>
               <button
                 onClick={() => {
@@ -207,11 +238,18 @@ export const ContactSection: React.FC = () => {
                 />
               </div>
 
+              {error && (
+                <p className="text-sm font-mono text-rose-300 bg-rose-500/10 border border-rose-500/40 rounded-xl px-4 py-3">
+                  {error}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white font-mono text-sm font-bold tracking-wider uppercase shadow-lg shadow-rose-500/25 transition-all flex items-center justify-center gap-2 group"
+                disabled={sending}
+                className="w-full py-4 disabled:opacity-60 disabled:cursor-not-allowed rounded-xl bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 text-white font-mono text-sm font-bold tracking-wider uppercase shadow-lg shadow-rose-500/25 transition-all flex items-center justify-center gap-2 group"
               >
-                <span>TRANSMIT DISPATCH</span>
+                <span>{sending ? 'TRANSMITTING...' : 'TRANSMIT DISPATCH'}</span>
                 <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>
             </form>
