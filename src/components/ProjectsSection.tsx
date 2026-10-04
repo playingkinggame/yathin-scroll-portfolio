@@ -8,88 +8,89 @@ export const ProjectsSection: React.FC = () => {
 
   const projects: ProjectData[] = [
     {
-      id: 'neuro-horizon',
-      title: 'NeuroHorizon 3D',
-      subtitle: 'Real-Time Neural Topology & Latent Space Navigator',
-      category: 'Deep Learning & 3D WebGL',
-      description: 'An interactive 3D WebGL environment designed to visualize deep neural network activations, multidimensional manifold projections, and loss landscapes in real time. Built with Three.js, custom GLSL point cloud shaders, and PyTorch export bindings.',
+      id: 'blockworld',
+      title: 'Blockworld 3D',
+      subtitle: 'Playable Voxel Adventure & Interactive Developer Portfolio',
+      category: '3D WebGL & Interactive Game',
+      description: 'A playable voxel adventure game that doubles as my developer portfolio. Explore a fully 3D voxel world built with Three.js and React to discover projects, skills, and achievements, or switch to an accessible 2D portfolio view at any time.',
       architecture: [
-        'Custom GLSL vertex shader simulating 10,000+ interactive tensor nodes',
-        'Dynamic camera trajectory synchronized with training epoch checkpoints',
-        'Dimensionality reduction visualization via t-SNE and UMAP clustering',
-        'Zero-dependency browser inference runner using ONNX Web Runtime'
+        'Fully explorable 3D voxel world rendered in the browser with Three.js',
+        'Projects, skills, and achievements discovered as in-world game content',
+        'Accessible 2D portfolio view available as an instant alternate mode',
+        'Global game and UI state managed with Zustand, deployed on Vercel'
       ],
-      techStack: ['Three.js', 'PyTorch', 'GLSL Shaders', 'TypeScript', 'WebGL', 'React 19'],
+      techStack: ['Three.js', 'React', 'TypeScript', 'Zustand', 'Tailwind CSS', 'Vite'],
       metrics: [
-        { label: 'FRAMES PER SEC', value: '60 FPS' },
-        { label: 'SYNAPSE NODES', value: '10,000+' },
-        { label: 'LATENCY', value: '< 16ms' }
+        { label: 'RENDERING', value: 'Three.js 3D' },
+        { label: 'VIEW MODES', value: '3D + 2D' },
+        { label: 'DEPLOYMENT', value: 'Vercel' }
       ],
-      githubUrl: 'https://github.com',
-      liveUrl: '#',
+      githubUrl: 'https://github.com/playingkinggame/game_portfolio_ultra',
+      liveUrl: 'https://yathin-game-portfolio-ultra.vercel.app',
       imageBg: 'radial-gradient(circle at top right, #381045, #080718)'
     },
     {
-      id: 'aura-vision',
-      title: 'AuraVision AI',
-      subtitle: 'Zero-Contact Spatial Gesture & Computer Vision Engine',
-      category: 'Computer Vision & AI',
-      description: 'A contactless interaction framework powered by deep convolutional networks and landmark tracking. Enables users to navigate 3D space environments, manipulate virtual objects, and trigger neural inference through intuitive natural hand postures.',
+      id: 'jarvis',
+      title: 'J.A.R.V.I.S Assistant',
+      subtitle: 'Voice-Controlled Desktop AI with Computer Vision',
+      category: 'AI Assistant & Computer Vision',
+      description: 'A voice-controlled personal desktop assistant with a cinematic PySide6 interface, computer vision, hand-tracking air drawing, app and window control, persistent memory, and a floating hologram mode window.',
       architecture: [
-        '21-point dual-hand 3D skeleton tracking and temporal smoothing',
-        'Lightweight CNN model optimized for edge devices and standard webcams',
-        'Kinematic gesture classifier with sub-25 millisecond response time',
-        'Real-time HUD overlay rendering vector telemetry in canvas'
+        'Wake-word voice listening with Groq-powered AI chat and intent handling',
+        'Camera-based live scene analysis using YOLO object detection and OCR',
+        'Hand-tracking air-drawing app built on OpenCV and MediaPipe',
+        'Persistent facts memory stored in MySQL, plus screen analysis and a floating hologram window'
       ],
-      techStack: ['Python', 'OpenCV', 'PyTorch', 'MediaPipe', 'TypeScript', 'Canvas API'],
+      techStack: ['Python', 'PySide6', 'OpenCV', 'MediaPipe', 'YOLOv8', 'MySQL'],
       metrics: [
-        { label: 'GESTURE ACCURACY', value: '98.4%' },
-        { label: 'INFERENCE SPEED', value: '24ms' },
-        { label: 'KEYPOINTS', value: '42 Points' }
+        { label: 'INTERFACE', value: 'Voice + Vision' },
+        { label: 'AI ENGINE', value: 'Groq LLM' },
+        { label: 'PLATFORM', value: 'Windows' }
       ],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/playingkinggame/advance_jarvis_project',
       imageBg: 'radial-gradient(circle at top right, #102a45, #080718)'
     },
     {
-      id: 'cosmo-query',
-      title: 'CosmoQuery Agent',
-      subtitle: 'Autonomous ArXiv Research Copilot with RAG Synthesis',
+      id: 'autopilot',
+      title: 'Autopilot Job Agent',
+      subtitle: 'Autonomous Job Matching & Cover Letter Agent with Critic Loop',
       category: 'LLMs & AI Agents',
-      description: 'An autonomous multi-step research agent tailored for computer science and AI researchers. Ingests raw arXiv papers, breaks down mathematical proofs, generates concise visual concept summaries, and maintains verified citation chains.',
+      description: 'An AI agent that finds real job and internship listings matching your resume, scores your fit for each, drafts tailored cover letters, and fact-checks every draft with an independent LLM critic before it is considered final. Every decision is logged and streamed live to a dashboard.',
       architecture: [
-        'Hierarchical document vectorization with hybrid dense/sparse search',
-        'Grounded reasoning loops ensuring zero mathematical hallucination',
-        'Automatic LaTeX extraction and formula diagram generation',
-        'Streaming markdown renderer with interactive citation tooltips'
+        'Planner, Executor, and Critic agent loop orchestrating every run',
+        'Live job search via SerpApi Google Jobs with auto-generated queries from the resume',
+        'LLM fit scoring (0-100) with reasoning, matched skills, and gaps',
+        'Hallucination critic audits each cover letter against the resume, with live SSE decision log'
       ],
-      techStack: ['Python', 'Hugging Face', 'Vector DB', 'FastAPI', 'Tailwind CSS', 'React 19'],
+      techStack: ['Python', 'FastAPI', 'Groq', 'SerpApi', 'SQLite', 'JavaScript'],
       metrics: [
-        { label: 'PAPERS INDEXED', value: '2,500+' },
-        { label: 'GROUNDING SCORE', value: '99.1%' },
-        { label: 'SUMMARY TIME', value: '1.2s' }
+        { label: 'AGENT LOOP', value: 'Plan > Execute > Critic' },
+        { label: 'FIT SCORING', value: '0-100' },
+        { label: 'STREAMING', value: 'Live SSE Log' }
       ],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/playingkinggame/autopilot',
       imageBg: 'radial-gradient(circle at top right, #3d1b28, #080718)'
     },
     {
-      id: 'vit-pulse',
-      title: 'VIT CampusPulse AI',
-      subtitle: 'Predictive Campus Intelligence & Student Scheduler',
+      id: 'finpilot',
+      title: 'FinPilot',
+      subtitle: 'AI-Powered Private Financial Operating System',
       category: 'AI Application & Systems',
-      description: 'A smart campus concept engineered specifically for VIT Chennai students. Features predictive dining crowd analytics, smart timetable conflict resolution, and peer study group matching powered by heuristic clustering.',
+      description: 'An AI-assisted personal finance workspace to track transactions, budgets, goals, and subscriptions, visualize cash flow, and ask a Groq-powered copilot questions about your own money, all backed by your own private Supabase database.',
       architecture: [
-        'Heuristic scheduling algorithm balancing student credits and fatigue score',
-        'Predictive rush-hour forecasting for campus food courts using time-series models',
-        'Encrypted local storage for student privacy and offline timetable sync',
-        'Sleek dark-mode interface built with Tailwind CSS and Framer Motion'
+        'Dashboard, analytics, cash flow, What-If simulator, money-leak detector, and expense DNA',
+        'AI Copilot chat and receipt scanning powered by Groq',
+        'Email/password auth and Google Sign-In via Supabase Auth',
+        'Postgres schema with Row Level Security scoping every row to the signed-in user, plus offline Demo Mode'
       ],
-      techStack: ['TypeScript', 'C++', 'Python', 'React 19', 'Tailwind CSS', 'IndexedDB'],
+      techStack: ['React 19', 'TypeScript', 'Supabase', 'Groq', 'Tailwind CSS', 'Express'],
       metrics: [
-        { label: 'SCHEDULE EFFICIENCY', value: '+35%' },
-        { label: 'TARGET COHORT', value: 'VIT 2026-30' },
-        { label: 'RESPONSE TIME', value: '50ms' }
+        { label: 'DATA SECURITY', value: 'Row Level Security' },
+        { label: 'AI MODEL', value: 'Llama 3.3 70B' },
+        { label: 'AUTH', value: 'Google + Email' }
       ],
-      githubUrl: 'https://github.com',
+      githubUrl: 'https://github.com/playingkinggame/FinPilot',
+      liveUrl: 'https://yathin-finpilot.vercel.app',
       imageBg: 'radial-gradient(circle at top right, #1f143d, #080718)'
     }
   ];

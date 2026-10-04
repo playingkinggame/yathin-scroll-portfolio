@@ -85,7 +85,7 @@ export const ContactSection: React.FC = () => {
               </span>
               <div className="grid grid-cols-2 gap-3">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/playingkinggame"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3.5 rounded-xl bg-[#12122f] border-2 border-slate-700/80 hover:border-rose-500 hover:bg-[#16163a] transition-all flex items-center gap-3 group shadow-md"
@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
                   </span>
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://in.linkedin.com/in/yathin-kumar-55b97141b"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3.5 rounded-xl bg-[#12122f] border-2 border-slate-700/80 hover:border-rose-500 hover:bg-[#16163a] transition-all flex items-center gap-3 group shadow-md"

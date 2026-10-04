@@ -132,7 +132,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
           <div className="flex items-center justify-between pt-2">
             <div className="flex gap-2">
               <a
-                href="https://github.com"
+                href="https://github.com/playingkinggame"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
@@ -141,7 +141,7 @@ export const NavigationDrawer: React.FC<NavigationDrawerProps> = ({
                 <Github className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://in.linkedin.com/in/yathin-kumar-55b97141b"
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
