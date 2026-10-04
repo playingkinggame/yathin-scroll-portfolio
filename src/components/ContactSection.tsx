@@ -49,8 +49,11 @@ export const ContactSection: React.FC = () => {
         throw new Error(data.message || 'Request failed');
       }
       setSubmitted(true);
-    } catch {
-      setError('Transmission failed. Please try again, or email me directly using the address on the left.');
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : '';
+      setError(
+        `Transmission failed${reason ? ` (${reason})` : ''}. Use the button below to send it from your own email app instead.`
+      );
     } finally {
       setSending(false);
     }
@@ -242,6 +245,15 @@ export const ContactSection: React.FC = () => {
                 <p className="text-sm font-mono text-rose-300 bg-rose-500/10 border border-rose-500/40 rounded-xl px-4 py-3">
                   {error}
                 </p>
+              )}
+
+              {error && (
+                <a
+                  href={`mailto:${email}?subject=${encodeURIComponent(formData.subject || 'Portfolio message')}&body=${encodeURIComponent(`Hi Yathin,\n\n${formData.message}\n\n- ${formData.name} (${formData.email})`)}`}
+                  className="block w-full py-3 rounded-xl border-2 border-rose-500/60 text-center text-rose-300 hover:bg-rose-500/10 font-mono text-xs font-bold tracking-wider uppercase transition-colors"
+                >
+                  SEND VIA EMAIL APP INSTEAD
+                </a>
               )}
 
               <button
